@@ -1,0 +1,53 @@
+<div class="form-group">
+  <div class="form-group col-md-6">
+    <label for="firstName">First Name </label>
+    <input type="text" class="form-control" id="firstName" placeholder="first name" [(ngModel)]="firstName">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" id="lastName" placeholder="last name" [(ngModel)]="surName">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="dob">Date of Birth</label>
+    <input type="date" class="form-control" id="dob" [(ngModel)]="dob">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="search()">Search</button>
+</div>
+
+<div class='table-responsive'>
+  <table class='table' *ngIf='employees && employees.length'>
+    <thead>
+      <tr>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>FirstName</th>
+        <th>SurName</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Town</th>
+        <th>PostCode</th>
+        <th>Dob</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- (click)='onEdit(employee)' -->
+      <tr *ngFor='let employee of employees'>
+        <td>
+          <button class = 'btn btn-secondary' [routerLink]="['/addnewemployee', employee.employeeId]">Edit</button>
+        </td>
+        <td>
+            <button class = 'btn btn-secondary' (click)="onDelete(employee.employeeId)">Delete</button>
+        </td>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.surName}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.town}}</td>
+        <td>{{employee.postcode}}</td>
+        <td>{{employee.dob}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

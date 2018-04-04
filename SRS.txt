@@ -1,0 +1,46 @@
+point of sales.
+
+Navigation Bar
+POS -- Employee, Customer, Manage Categories, Manage Items, Orders, Reports, Login, Customer-Signup
+
+Router Module
+
+Search employees
+Employee Module
+register new employee.
+edit employee
+delete employee
+
+Search customer
+Customer Module
+register new customer.
+edit customer
+delete customer
+
+Inventory Module
+CRUD Item Categories
+Continue watch on item threshold
+add new inventory
+search item.
+edit item.
+delete item.
+
+Order Module
+create new order
+edit order before payment.
+print order receipt.
+
+Reports.
+Order list by customer
+Order list by employee
+sales by area
+sales by item
+sales by employee
+
+------------------------------------------------------------------
+Create navigation component and use it in app.component
+create router module for all the above routes.
+create employee search component.
+this component will have Surname first name and DOB boxes and search button to fecilitate the employee search.  
+employee search component will be displayed when a user click on Employee button on navigation bar. 
+

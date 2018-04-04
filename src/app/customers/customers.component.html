@@ -1,0 +1,74 @@
+<div class='container'>
+    <h3>Customers</h3>
+    <form #form='ngForm'>
+        <div class='form group col-md-6'>
+            <label for="control-lable">Customer Id</label>
+            <input type='text' class='form-control'>
+        </div>
+
+        <div class='form group col-md-6'>
+            <label for="control-lable">First Name</label>
+            <input #firstName='ngModel' type='text' class='form-control' required name='firstName' [(ngModel)]='abc.firstName'>
+        </div>
+        <div *ngIf='firstName.invalid && firstName.touched' class='alert alert-danger'>
+                First Name is Required!!
+        </div>
+
+        <div class='form-group col-md-6'>
+            <label for="control-lable">Sur Name</label>
+            <input #surName= 'ngModel' type='text' class='form-control' required name='surName' [(ngModel)]='abc.surName'>
+        </div>
+        <div *ngIf='surName.invalid && surName.touched' class='alert alert-danger'>
+                 Sur Name is Required!!
+            </div>
+
+        <div class='form-group col-md-6'>
+            <label for="control-lable">Email</label>
+            <input #email= 'ngModel' type='text' class='form-control' required name='email' [(ngModel)]='abc.email'>
+        </div>
+        <div *ngIf='email.invalid && email.touched' class='alert alert-danger'>
+                Valid Email is Required!!
+            </div>
+
+        
+        <div class='form-group col-md-6'>
+            <label for="control-lable">Phone</label>
+            <input #phone= 'ngModel' type="number" class='form-control' required name='phone' [(ngModel)]='abc.phone'>
+        </div>
+        <div *ngIf= 'phone.invalid && phone.touched' class= 'alert alert-danger'>
+            Please Provide Phone Number!!
+        </div>
+        
+        <div class='form-group col-md-6'>
+            <label for="control-lable">Address</label>
+            <input #address= 'ngModel' type="text" class='form-control' required name='address' [(ngModel)]='abc.address'>
+        </div>
+        <div *ngIf= 'address.invalid && address.touched' class= 'alert alert-danger'>
+            please Provide an Address!!
+        </div>
+
+
+        <div class='form-group col-md-6'>
+            <label for="control-lable">Town</label>
+            <input #town= 'ngModel' type="text" class='form-control' required name='town' [(ngModel)]='abc.town'>
+        </div>
+        <div *ngIf='town.invalid && town.touched' class='alert alert-danger'>
+                please Provide town!!
+            </div>
+
+
+        <div class='form-group col-md-6'>
+            <label for="control-lable">Post Code</label>
+            <input #postCode= 'ngModel' type="text" class='form-control' required name='postCode' [(ngModel)]='abc.postCode'>
+        </div>
+        <div *ngIf='postCode.invalid && postCode.touched' class='alert alert-danger'>
+                please Provide postCode!!
+            </div>
+        <div>
+            <button type='submit' class='btn btn-primary' [disabled]= 'form.invalid'>Submit</button>
+        </div>
+    </form>
+</div>
+Angular: {{form.value | json }}
+<br> 
+abc: {{ abc | json }}

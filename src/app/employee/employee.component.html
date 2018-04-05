@@ -3,51 +3,89 @@
         {{ isUpdating ? 'Edit Employee' : 'Add New Employee' }}
     </strong>
 </span>
+<form #form='ngForm'>
 
-<div class='form-group col-md-6'>
-    <label for="inputTown">First Name</label>
-    <input type='text' class='form-control' id='firsName' [(ngModel)]='emp.firstName'>
-</div>
+    <div class='form-group col-md-6'>
+        <label for="control-lable">First Name</label>
+        <input #firstName='ngModel' type='text' class='form-control' required name='firsName' [(ngModel)]='emp.firstName'>
+    </div>
+    <div *ngIf='firstName.invalid && firstName.touched' class='alert alert-danger'>
+        First Name is Required!!
+    </div>
 
-<div class='form-group col-md-6'>
-    <label for='surName'>Sur Name</label>
-    <input type='text' class='form-control' id='surName' [(ngModel)]='emp.surName'>
-</div>
 
-<div class='form-group col-md-6'>
-    <label for='email col-md-6'>Email Address</label>
-    <input type='email' class='form-control' id='email' [(ngModel)]='emp.email'>
-</div>
+    <div class='form-group col-md-6'>
+        <label for='control-lable'>Last Name</label>
+        <input #lastName='ngModel' type='text' class='form-control' required name='lastName' [(ngModel)]='emp.surName'>
+    </div>
+    <div *ngIf='lastName.invalid && lastName.touched' class='alert alert-danger'>
+        Last Name is Required!!
+    </div>
 
-<div class='form-group col-md-6'>
-    <label for="phone">Phone</label>
-    <input type="number" class='form-control' id='num' [(ngModel)]='emp.phone'>
-</div>
-<div class='form-group col-md-6'>
-    <label for="inputAddress">Address</label>
-    <input type='text' class='form-control' id='address' [(ngModel)]='emp.address'>
-</div>
+    <div class='form-group col-md-6'>
+        <label for="control-lable">DOB</label>
+        <input #dob='ngModel' type='date' class='form-control' required name='dob' [(ngModel)]='emp.dob'>
+    </div>
+    <div *ngIf='dob.invalid && dob.touched' class='alert alert-danger'>
+        Please Provide DOB!!
+    </div>
 
-<div class='form-group col-md-6'>
-    <label for="inputAddress">Address 2</label>
-    <input type='text' class='form-control' id='address' [(ngModel)]='emp.address'>
-</div>
 
-<div class='form-group col-md-6'>
-    <label for="inputTown col-md-3">Town</label>
-    <input type='text' class='form-control' id='town' [(ngModel)]='emp.town'>
-</div>
-<div class='form-group col-md-6'>
-    <label for="inputPostcode">PostCode</label>
-    <input type='text' class='form-control' id='postcode' [(ngModel)]='emp.postcode'>
-</div>
-<div class='form-group col-md-6'>
-    <label for="inputDob">DOB</label>
-    <input type='text' class='form-control' id='dob' [(ngModel)]='emp.dob'>
-</div>
-<div>
-    <button type="button" (click)="SaveClicked()" class="btn btn-primary" >{{ isUpdating ? 'Update' : 'Save'}}</button>
-</div>
+    <div class='form-group col-md-6'>
+        <label for='control-lable col-md-6'>Email Address</label>
+        <input #email='ngModel' type='email' class='form-control' required name='email' [(ngModel)]='emp.email'>
+    </div>
+    <div *ngIf='email.invalid && email.touched' class='alert alert-danger'>
+        Valid Email is Required!!
+    </div>
+
+
+    <div class='form-group col-md-6'>
+        <label for="control-lable">Phone</label>
+        <input #phone='ngModel' type="number" class='form-control' required name='num' [(ngModel)]='emp.phone'>
+    </div>
+    <div *ngIf='phone.invalid && phone.touched' class='alert alert-danger'>
+        Please Provide Phone Number!!
+    </div>
+
+    <div class='form-group col-md-6'>
+        <label for="control-lable">Address</label>
+        <input #address='ngModel' type='text' class='form-control' required name='address' [(ngModel)]='emp.address'>
+    </div>
+    <div *ngIf='address.invalid && address.touched' class='alert alert-danger'>
+        Please Provide an Address!!
+    </div>
+
+
+    <div class='form-group col-md-6'>
+        <label for="control-lable">Address 2</label>
+        <input #address2='ngModel' type='text' class='form-control' required name='address2' [(ngModel)]='emp.address2'>
+    </div>
+    <div *ngIf='address2.invalid && address2.touched' class='alert alert-danger'>
+        Please Provide an Address2!!
+    </div>
+
+
+    <div class='form-group col-md-6'>
+        <label for="control-lable col-md-3">Town</label>
+        <input #town='ngModel' type='text' class='form-control' required name='town' [(ngModel)]='emp.town'>
+    </div>
+    <div *ngIf='town.invalid && town.touched' class='alert alert-danger'>
+        Please Provide town!!
+    </div>
+
+    <div class='form-group col-md-6'>
+        <label for="control-lable">PostCode</label>
+        <input #postCode='ngModel' type='text' class='form-control' required name='postcode' [(ngModel)]='emp.postcode'>
+    </div>
+    <div *ngIf='postCode.invalid && postCode.touched' class='alert alert-danger'>
+        Please Provide postCode!!
+    </div>
+
+    <div>
+        <button type="button" (click)="SaveClicked()" class="btn btn-primary">{{ isUpdating ? 'Update' : 'Save'}}</button>
+    </div>
+</form>
 <span *ngIf="message">
     {{ message }}
 </span>
